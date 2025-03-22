@@ -3,10 +3,12 @@
 using namespace std;
 
 // Función para calcular el factorial de un número entero
-long long factorial(int n) {
-    if (n < 0) return -1; // No existe factorial de negativos
+long long factorial(int num1) {
+    if (num1 < 0) {
+        return -1;
+    }
     long long resultado = 1;
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= num1; i++) {
         resultado *= i;
     }
     return resultado;
@@ -40,7 +42,10 @@ int main () {
     cin >> num1;
     cout << "Ingrese la operacion que desee realizar (+, -, *, /, !, ^, r)"<< endl;
     cin >> operacion;
-    if (operacion !='r') {
+    if (operacion =='!') {
+        cout << "El resultado es: "<< factorial(static_cast<int>(num1)) << endl;
+    }
+    if (operacion =='r') {
         cout << "Por favor ingrese el segundo numero: "<< endl;
         cin >> num2;
     }
@@ -66,6 +71,8 @@ int main () {
         break;
         case 'r':
             cout <<"el resultado es: "<<raiz_cuadrada(num1) << endl;
+        case '!':
+            cout << "El resultado es: "<<factorial(num1) << endl;
         default:
             cout << "Operacion no valida" << endl;
         break;
